@@ -3,7 +3,7 @@ import java.util.*;
 
 public class scan {
 
-    static public String str(String pattern, String prompt, String errmsg)
+    static public String str(String prompt, String pattern, String errmsg)
         throws IllegalStateException
     {
         while(true)
