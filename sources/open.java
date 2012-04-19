@@ -5,51 +5,63 @@ import java.util.*;
 
 public class open {
 
-    static public BufferedReader r(String path)
+    static public BufferedReader reader(String path)
         throws FileNotFoundException
     {
         return new BufferedReader( new FileReader( new File(path) ) );
     }
 
-    static public void show(String path)
+    static public List<String> r(String path)
         throws FileNotFoundException, IOException
     {
-        BufferedReader breader = open.r(path);
+        BufferedReader breader = open.reader(path);
+        List<String> lines = new ArrayList<String>();
 
         while(true)
         {
             String line = breader.readLine();
             if(line == null) break;
-            System.out.println(line);
+            lines.add(line);
         }
+
+        return lines;
+    }
+
+    static public void show(String path)
+        throws FileNotFoundException, IOException
+    {
+        List<String> lines = open.r(path);
+        for(String line : lines)
+            System.out.println(line);
+    }
+
+    static public List<String[]> rcsv(String path, String sepregex)
+        throws FileNotFoundException, IOException
+    {
+        List<String> lines = open.r(path);
+        List<String[]> list = new ArrayList<String[]>();
+
+        for(String line : lines)
+            list.add( line.split(sepregex) );
+
+        return list;
+    }
+
+    static public BufferedWriter writer(String path)
+        throws IOException
+    {
+        return new BufferedWriter( new FileWriter( new File(path) ) );
     }
 
     static public void w(String path, String[] lines)
         throws IOException
     {
-        BufferedWriter bwriter = new BufferedWriter( new FileWriter( new File(path) ) );
+        BufferedWriter bwriter = open.writer(path);
         for(String line : lines)
         {
             bwriter.write(line);
             bwriter.newLine();
         }
         bwriter.close();
-    }
-
-    static public List<String[]> rcsv(String path, String sepregex)
-        throws FileNotFoundException, IOException
-    {
-        BufferedReader breader = open.r(path);
-
-        List<String[]> list = new ArrayList<String[]>();
-
-        while(true)
-        {
-            String line = breader.readLine();
-            if(line == null) break;
-            list.add( line.split(sepregex) );
-        }
-
-        return list;
     }
 }
