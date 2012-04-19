@@ -36,7 +36,7 @@ public class scan {
         throws IllegalStateException
     {
         return str(prompt, pattern, null);
-            }
+    }
 
     static public String str(String prompt)
         throws IllegalStateException
