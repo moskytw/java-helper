@@ -11,6 +11,19 @@ public class open {
         return new BufferedReader( new FileReader( new File(path) ) );
     }
 
+    static public void show(String path)
+        throws FileNotFoundException, IOException
+    {
+        BufferedReader breader = open.r(path);
+
+        while(true)
+        {
+            String line = breader.readLine();
+            if(line == null) break;
+            System.out.println(line);
+        }
+    }
+
     static public void w(String path, String[] lines)
         throws IOException
     {

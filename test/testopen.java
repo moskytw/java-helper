@@ -11,14 +11,7 @@ public class testopen {
         String[] lines = {"Hello", "World"};
         open.w("../data/testopen.txt", lines);
         
-        BufferedReader breader = open.r("../data/testopen.txt");
-
-        while(true)
-        {
-            String line = breader.readLine();
-            if(line == null) break;
-            System.out.println(line);
-        }
+        open.show("../data/testopen.txt");
 
         System.out.println("");
 
