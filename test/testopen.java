@@ -9,13 +9,13 @@ public class testopen {
         throws IOException
     {
         String[] lines = {"Hello", "World"};
-        open.w("../data/testopen.txt", lines);
+        open.w("data/testopen.txt", lines);
         
-        open.show("../data/testopen.txt");
+        open.show("data/testopen.txt");
 
         System.out.println("");
 
-        List<String[]> list = open.rcsv("../data/input.csv", ",");
+        List<String[]> list = open.rcsv("data/input.csv", ",");
 
         for(String[] items : list)
         {
