@@ -14,6 +14,9 @@ public class open {
     static public List<String> r(String path)
         throws FileNotFoundException, IOException
     {
+        // Implement Iterable and Iterator are better than using List and reading
+        // all of the file into List (here).
+
         BufferedReader breader = open.reader(path);
         List<String> lines = new ArrayList<String>();
 
