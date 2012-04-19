@@ -13,16 +13,34 @@ public class scan {
             String str = null;
 
             try {
-                str = scanner.next(pattern);
+                if(pattern == null)
+                    str = scanner.next();
+                else
+                    str = scanner.next(pattern);
             }
             catch(NoSuchElementException e) {
                 // pass
             }
 
             if(str == null)
-                System.out.println(errmsg);
+            {
+                if(errmsg != null)
+                    System.out.println(errmsg);
+            }
             else
                 return str;
         }
+    }
+
+    static public String str(String prompt, String pattern)
+        throws IllegalStateException
+    {
+        return str(prompt, pattern, null);
+            }
+
+    static public String str(String prompt)
+        throws IllegalStateException
+    {
+        return str(prompt, null, null);
     }
 }
